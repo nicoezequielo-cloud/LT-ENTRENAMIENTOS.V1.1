@@ -34,7 +34,7 @@ export default function LTHero() {
     <section ref={ref} className="relative min-h-screen flex items-center pt-28 pb-16 px-4" id="inicio">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          <div className="text-center lg:text-left order-2 lg:order-1 lg:pr-4">
+          <div className="text-center lg:text-left lg:pr-4">
             <span className="lt-hero-tag inline-block text-neon-cyan font-mono text-xs tracking-[0.2em] uppercase bg-neon-cyan/10 px-4 py-1.5 rounded-full mb-5">
               ⚡ Preparación Física Profesional
             </span>
@@ -50,7 +50,7 @@ export default function LTHero() {
               <a href="#servicios"><NeonButton variant="secondary">Ver servicios</NeonButton></a>
             </div>
           </div>
-          <div className="lt-hero-visual flex justify-center lg:justify-start order-1 lg:order-2">
+          <div className="lt-hero-visual flex justify-center lg:justify-start">
             <div className="relative p-2 rounded-[1.75rem] bg-glass border border-glass-border backdrop-blur-xl shadow-[0_0_40px_rgba(232,89,12,0.08)]">
               <div className="absolute -inset-6 bg-gradient-to-br from-neon-cyan/8 via-neon-purple/5 to-neon-magenta/8 rounded-[3rem] blur-3xl pointer-events-none" />
               <Carousel images={carouselImages} className="w-[300px] sm:w-[360px] md:w-[420px] lg:w-[440px] relative" />

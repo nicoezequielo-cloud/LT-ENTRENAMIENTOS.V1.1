@@ -7,14 +7,14 @@ import SectionTitle from '../ui/SectionTitle'
 gsap.registerPlugin(ScrollTrigger)
 
 const productos = [
-  { img: '/images/prote whey1.jpeg', title: 'Proteína', desc: 'Proteína de suero de leche de alta calidad para tu recuperación muscular. 2 variedades.', wa: 'prote%C3%ADna' },
-  { img: '/images/pankakes proteicos granger.jpeg', title: 'Pancakes Proteicos', desc: 'Pancakes proteicos en 4 variedades: Granger, Granger Choco, Whey y Whey Green.', wa: 'los%20pancakes%20proteicos' },
+  { img: '/images/prote whey1.jpeg', title: 'Proteína', desc: 'Proteína de suero de leche de alta calidad para tu recuperación muscular. Consultá por variedades.', wa: 'prote%C3%ADna' },
+  { img: '/images/pankakes proteicos granger.jpeg', title: 'Pancakes Proteicos', desc: 'Pancakes elaborados con proteína, ideales para un desayuno o merienda rica y nutritiva. Consultá por la variedad.', wa: 'los%20pancakes%20proteicos' },
   { img: '/images/cupcakes proteicos.jpeg', title: 'Cupcakes Proteicos', desc: 'Cupcakes proteicos, el snack dulce que no podés dejar de probar.', wa: 'los%20cupcakes%20proteicos' },
-  { img: '/images/creatina star.jpeg', title: 'Creatina', desc: 'Creatina para maximizar tu fuerza y rendimiento. 2 variedades: Star y Ena.', wa: 'la%20creatina' },
+  { img: '/images/creatina star.jpeg', title: 'Creatina', desc: 'Suplemento clave para maximizar tu fuerza, potencia y rendimiento en cada entrenamiento. Consultá por marcas.', wa: 'la%20creatina' },
   { img: '/images/omellette prote.jpeg', title: 'Omelette Proteico', desc: 'Omelette proteico, una opción salada y nutritiva para cualquier momento.', wa: 'el%20omelette%20proteico' },
   { img: '/images/shaker.jpeg', title: 'Shaker', desc: 'Shaker para llevar tus batidos a cualquier lado.', wa: 'el%20shaker' },
   { img: '/images/cookies proteicas.jpeg', title: 'Cookies Proteicas', desc: 'Cookies proteicas, el snack perfecto para cualquier momento del día.', wa: 'las%20cookies%20proteicas' },
-  { img: '/images/hydrolized colagen.jpeg', title: 'Hydrolized Collagen', desc: 'Colágeno hidrolizado para articulaciones, piel y recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
+  { img: '/images/hydrolized colagen.jpeg', title: 'Colágeno Hidrolizado', desc: 'Colágeno hidrolizado para cuidar tus articulaciones, piel y acelerar la recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
   { img: null, title: 'Remeras', desc: 'Remeras LT Entrenamientos. Andá reservando la tuya.', wa: 'una%20remera%20de%20LT%20Entrenamientos', soon: true },
   { img: null, title: 'Buzos', desc: 'Buzos LT Entrenamientos para entrenar con estilo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos', soon: true },
   { img: null, title: 'Toallas', desc: 'Toallas deportivas LT Entrenamientos.', wa: 'una%20toalla%20de%20LT%20Entrenamientos', soon: true },
