@@ -12,6 +12,10 @@ const carouselImages = [
   '/images/20260617_120330_0001.png',
   '/images/Diseño sin título_20260617_120643_0000.png',
   '/images/20260617_120330_0004.png',
+  '/images/toro.jpeg',
+  '/images/detallelt.jpeg',
+  '/images/logo atras.jpeg',
+  '/images/lt.jpeg',
 ]
 
 export default function LTHero() {

@@ -15,17 +15,15 @@ const productos = [
   { img: '/images/shaker.jpeg', title: 'Shaker', desc: 'Shaker para llevar tus batidos a cualquier lado.', wa: 'el%20shaker' },
   { img: '/images/cookies proteicas.jpeg', title: 'Cookies Proteicas', desc: 'Cookies proteicas, el snack perfecto para cualquier momento del día.', wa: 'las%20cookies%20proteicas' },
   { img: '/images/hydrolized colagen.jpeg', title: 'Colágeno Hidrolizado', desc: 'Colágeno hidrolizado para cuidar tus articulaciones, piel y acelerar la recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
-  { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
-  { img: '/images/stickers.jpeg', title: 'Stickers', desc: 'Stickers LT Entrenamientos para decorar tu celu, laptop o donde quieras.', wa: 'los%20stickers%20de%20LT%20Entrenamientos' },
+  { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg', '/images/stickers.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
   { img: null, title: 'Remeras', desc: 'Remeras LT Entrenamientos. Andá reservando la tuya.', wa: 'una%20remera%20de%20LT%20Entrenamientos', soon: true },
-  { img: null, title: 'Toallas', desc: 'Toallas deportivas LT Entrenamientos.', wa: 'una%20toalla%20de%20LT%20Entrenamientos', soon: true },
 ]
 
 const waBase = 'https://wa.me/5491150575903?text=Hola!%20Quiero%20consultar%20por%20'
 
 export default function LTProductos() {
   const ref = useRef(null)
-  const { openLightbox } = useApp()
+  const { openLightbox, openGallery } = useApp()
 
   useEffect(() => {
     const el = ref.current
@@ -61,18 +59,23 @@ export default function LTProductos() {
                 </span>
               )}
               {p.img ? (
-                <div className={`w-full overflow-hidden bg-dark ${Array.isArray(p.img) ? 'grid grid-cols-2 gap-0' : ''}`} style={Array.isArray(p.img) ? {} : { aspectRatio: '4/3' }}>
-                  {(Array.isArray(p.img) ? p.img : [p.img]).map((src, i) => (
-                    <div key={i} className="relative overflow-hidden" style={{ aspectRatio: Array.isArray(p.img) ? '1/1' : '4/3' }}>
-                      <img
-                        src={src}
-                        alt={`${p.title} ${i + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
-                        loading="lazy"
-                        onClick={(e) => { e.stopPropagation(); openLightbox(src) }}
-                      />
-                    </div>
-                  ))}
+                <div className="w-full overflow-hidden bg-dark relative" style={{ aspectRatio: '4/3' }}>
+                  {Array.isArray(p.img) && (
+                    <span className="absolute top-2 right-2 z-10 text-[0.6rem] font-bold uppercase tracking-wider bg-dark/70 text-white/80 px-2 py-1 rounded-full backdrop-blur-sm">
+                      {p.img.length} fotos
+                    </span>
+                  )}
+                  <img
+                    src={Array.isArray(p.img) ? p.img[0] : p.img}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
+                    loading="lazy"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      if (Array.isArray(p.img)) openGallery(p.img)
+                      else openLightbox(p.img)
+                    }}
+                  />
                 </div>
               ) : (
                 <div className="w-full bg-dark/40 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>

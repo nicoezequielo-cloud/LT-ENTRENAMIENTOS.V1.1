@@ -4,7 +4,7 @@ const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
   const [toast, setToast] = useState({ msg: '', type: '', visible: false })
-  const [lightbox, setLightbox] = useState({ open: false, src: '' })
+  const [lightbox, setLightbox] = useState({ open: false, src: '', images: [], currentIndex: 0 })
   const [progress, setProgress] = useState(0)
   const [scrolled, setScrolled] = useState(false)
   const toastTimer = useRef(null)
@@ -15,8 +15,9 @@ export function AppProvider({ children }) {
     toastTimer.current = setTimeout(() => setToast(t => ({ ...t, visible: false })), 3500)
   }, [])
 
-  const openLightbox = useCallback((src) => setLightbox({ open: true, src }), [])
-  const closeLightbox = useCallback(() => { setLightbox({ open: false, src: '' }); document.body.style.overflow = '' }, [])
+  const openLightbox = useCallback((src) => setLightbox({ open: true, src, images: [], currentIndex: 0 }), [])
+  const openGallery = useCallback((images, startIndex = 0) => setLightbox({ open: true, src: images[startIndex], images, currentIndex: startIndex }), [])
+  const closeLightbox = useCallback(() => { setLightbox({ open: false, src: '', images: [], currentIndex: 0 }); document.body.style.overflow = '' }, [])
 
   useEffect(() => {
     if (lightbox.open) document.body.style.overflow = 'hidden'
@@ -41,7 +42,7 @@ export function AppProvider({ children }) {
   }, [])
 
   return (
-    <AppContext.Provider value={{ toast, showToast, lightbox, openLightbox, closeLightbox, progress, scrolled }}>
+    <AppContext.Provider value={{ toast, showToast, lightbox, openLightbox, openGallery, closeLightbox, progress, scrolled }}>
       {children}
     </AppContext.Provider>
   )
