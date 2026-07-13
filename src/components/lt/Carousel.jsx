@@ -30,14 +30,14 @@ export default function Carousel({ images, className = '' }) {
       onTouchStart={() => clearInterval(timerRef.current)}
       onTouchEnd={resetAutoplay}
     >
-      <div className="overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: '4/5' }}>
+      <div className="overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: '3/4' }}>
         <div
           className="flex h-full transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {images.map((src, i) => (
             <div key={i} className="min-w-full h-full flex-shrink-0 bg-dark relative">
-              <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+              <img src={src} alt="" className="absolute inset-0 w-full h-full object-contain" loading={i === 0 ? 'eager' : 'lazy'} />
             </div>
           ))}
         </div>

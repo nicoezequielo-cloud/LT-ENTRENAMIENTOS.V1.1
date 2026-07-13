@@ -15,7 +15,7 @@ const productos = [
   { img: '/images/shaker.jpeg', title: 'Shaker', desc: 'Shaker para llevar tus batidos a cualquier lado.', wa: 'el%20shaker' },
   { img: '/images/cookies proteicas.jpeg', title: 'Cookies Proteicas', desc: 'Cookies proteicas, el snack perfecto para cualquier momento del día.', wa: 'las%20cookies%20proteicas' },
   { img: '/images/hydrolized colagen.jpeg', title: 'Colágeno Hidrolizado', desc: 'Colágeno hidrolizado para cuidar tus articulaciones, piel y acelerar la recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
-  { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg', '/images/stickers.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
+  { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg', '/images/toro.jpeg', '/images/detallelt.jpeg', '/images/logo atras.jpeg', '/images/lt.jpeg', '/images/stickers.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
   { img: null, title: 'Remeras', desc: 'Remeras LT Entrenamientos. Andá reservando la tuya.', wa: 'una%20remera%20de%20LT%20Entrenamientos', soon: true },
 ]
 
@@ -68,7 +68,7 @@ export default function LTProductos() {
                   <img
                     src={Array.isArray(p.img) ? p.img[0] : p.img}
                     alt={p.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
+                    className={`w-full h-full transition-transform duration-500 cursor-zoom-in ${Array.isArray(p.img) ? 'object-contain p-2' : 'object-cover group-hover:scale-105'}`}
                     loading="lazy"
                     onClick={(e) => {
                       e.stopPropagation()
