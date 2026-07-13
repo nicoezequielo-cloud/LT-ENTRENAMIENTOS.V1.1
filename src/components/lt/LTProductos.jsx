@@ -15,8 +15,9 @@ const productos = [
   { img: '/images/shaker.jpeg', title: 'Shaker', desc: 'Shaker para llevar tus batidos a cualquier lado.', wa: 'el%20shaker' },
   { img: '/images/cookies proteicas.jpeg', title: 'Cookies Proteicas', desc: 'Cookies proteicas, el snack perfecto para cualquier momento del día.', wa: 'las%20cookies%20proteicas' },
   { img: '/images/hydrolized colagen.jpeg', title: 'Colágeno Hidrolizado', desc: 'Colágeno hidrolizado para cuidar tus articulaciones, piel y acelerar la recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
+  { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
+  { img: '/images/stickers.jpeg', title: 'Stickers', desc: 'Stickers LT Entrenamientos para decorar tu celu, laptop o donde quieras.', wa: 'los%20stickers%20de%20LT%20Entrenamientos' },
   { img: null, title: 'Remeras', desc: 'Remeras LT Entrenamientos. Andá reservando la tuya.', wa: 'una%20remera%20de%20LT%20Entrenamientos', soon: true },
-  { img: null, title: 'Buzos', desc: 'Buzos LT Entrenamientos para entrenar con estilo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos', soon: true },
   { img: null, title: 'Toallas', desc: 'Toallas deportivas LT Entrenamientos.', wa: 'una%20toalla%20de%20LT%20Entrenamientos', soon: true },
 ]
 
@@ -60,14 +61,18 @@ export default function LTProductos() {
                 </span>
               )}
               {p.img ? (
-                <div className="w-full overflow-hidden bg-dark" style={{ aspectRatio: '4/3' }}>
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
-                    loading="lazy"
-                    onClick={(e) => { e.stopPropagation(); openLightbox(p.img) }}
-                  />
+                <div className={`w-full overflow-hidden bg-dark ${Array.isArray(p.img) ? 'grid grid-cols-2 gap-0' : ''}`} style={Array.isArray(p.img) ? {} : { aspectRatio: '4/3' }}>
+                  {(Array.isArray(p.img) ? p.img : [p.img]).map((src, i) => (
+                    <div key={i} className="relative overflow-hidden" style={{ aspectRatio: Array.isArray(p.img) ? '1/1' : '4/3' }}>
+                      <img
+                        src={src}
+                        alt={`${p.title} ${i + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in"
+                        loading="lazy"
+                        onClick={(e) => { e.stopPropagation(); openLightbox(src) }}
+                      />
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <div className="w-full bg-dark/40 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
