@@ -16,6 +16,7 @@ const productos = [
   { img: '/images/cookies proteicas.jpeg', title: 'Cookies Proteicas', desc: 'Cookies proteicas, el snack perfecto para cualquier momento del día.', wa: 'las%20cookies%20proteicas' },
   { img: '/images/hydrolized colagen.jpeg', title: 'Colágeno Hidrolizado', desc: 'Colágeno hidrolizado para cuidar tus articulaciones, piel y acelerar la recuperación post-entreno.', wa: 'el%20col%C3%A1geno%20hidrolizado' },
   { img: ['/images/Buzofrente.jpeg', '/images/Buzodorso.jpeg', '/images/toro.jpeg', '/images/detallelt.jpeg', '/images/logo atras.jpeg', '/images/lt.jpeg', '/images/stickers.jpeg'], title: 'Buzos', desc: 'Buzos LT Entrenamientos. Vista frontal y dorsal. Incluye stickers de regalo.', wa: 'un%20buzo%20de%20LT%20Entrenamientos' },
+  { img: ['/images/toalla1.jpeg', '/images/toalla2.jpeg', '/images/toalla3.jpeg'], title: 'Toallas', desc: 'Toallas deportivas LT Entrenamientos para entrenar con estilo.', wa: 'una%20toalla%20de%20LT%20Entrenamientos' },
   { img: null, title: 'Remeras', desc: 'Remeras LT Entrenamientos. Andá reservando la tuya.', wa: 'una%20remera%20de%20LT%20Entrenamientos', soon: true },
 ]
 
